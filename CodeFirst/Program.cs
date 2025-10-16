@@ -13,15 +13,18 @@ internal class Program
         var services = ConfigureDependencies();
         var scope = services.CreateScope();
         CFContext context = scope.ServiceProvider.GetService<CFContext>();
-        context.Database.Migrate();
+        
         Alumno a = new Alumno
         {
             Nombre = "Jorge",
             Apellido = "Borges",
             Email = "borges@example.com"
         };
-        a.Materias.Add(context.Materias.Find(1));
+        // a.Materias.Add(context.Materias.Find(1));
         // var eliminarcontenido = context.Alumnos.Find(1);
+        var alumno = context.Alumnos.Find(1);
+        var añadirMateria = context.Materias.Find(1);
+        a.Materias.Add(añadirMateria);
         context.SaveChanges();
     }
 
