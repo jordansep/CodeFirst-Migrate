@@ -24,13 +24,15 @@ namespace CodeFirst.Class
         [StringLength(50)]
         public string Email { get; set; }
 
-        public Materia[] Materias { get; set; }
+        public List<Materia> Materias { get; set; } = new List<Materia>();
 
         // Constructores.
-        public Alumno() { }
+        public Alumno() { 
+        }
         public Alumno(string nombre, string apellido) {
             Nombre = nombre;
             Apellido = apellido;
+            
         }
         public Alumno(string nombre, string apellido, string email)
         {

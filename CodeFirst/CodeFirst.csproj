@@ -8,6 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20251016203940_InitialCreate.cs" />
+    <Compile Remove="Migrations\20251016203940_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20251016204618_AddAlumnoMateria.cs" />
+    <Compile Remove="Migrations\20251016204618_AddAlumnoMateria.Designer.cs" />
+    <Compile Remove="Migrations\20251016204835_test1.cs" />
+    <Compile Remove="Migrations\20251016204835_test1.Designer.cs" />
+    <Compile Remove="Migrations\20251016205057_AlumnoHasMaterias.cs" />
+    <Compile Remove="Migrations\20251016205057_AlumnoHasMaterias.Designer.cs" />
+    <Compile Remove="Migrations\CFContextModelSnapshot.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -18,13 +30,17 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.10" />
-    <PackageReference Include="MySql.EntityFrameworkCore" Version="9.0.6" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

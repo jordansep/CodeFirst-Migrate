@@ -1,9 +1,9 @@
-﻿using CodeFirst.Models;
+﻿using CodeFirst.Class;
+using CodeFirst.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Org.BouncyCastle.Security;
 
 internal class Program
 {
@@ -11,11 +11,18 @@ internal class Program
     {
         Console.WriteLine("Iniciando aplicación...");
         var services = ConfigureDependencies();
-        using (var scope = services.CreateScope())
+        var scope = services.CreateScope();
+        CFContext context = scope.ServiceProvider.GetService<CFContext>();
+        context.Database.Migrate();
+        Alumno a = new Alumno
         {
-            CFContext context = scope.ServiceProvider.GetService<CFContext>();
-            context.Database.Migrate();
-        }
+            Nombre = "Jorge",
+            Apellido = "Borges",
+            Email = "borges@example.com"
+        };
+        a.Materias.Add(context.Materias.Find(1));
+        // var eliminarcontenido = context.Alumnos.Find(1);
+        context.SaveChanges();
     }
 
     private static IServiceProvider ConfigureDependencies()
@@ -31,7 +38,7 @@ internal class Program
             {
                 throw new InvalidOperationException("No se pudo obtener la cadena de conexión del archivo appsettings.json");
             }
-            options.UseMySQL(connectionString);
+            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }, ServiceLifetime.Scoped);
         return services.BuildServiceProvider(); 
     }
