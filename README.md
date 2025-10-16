@@ -1,4 +1,4 @@
-ste es un proyecto de consola en .NET que demuestra el uso de Entity Framework Core con el enfoque Code-First para interactuar con una base de datos MySQL. La aplicación está configurada utilizando inyección de dependencias y gestiona un modelo de datos simple orientado a un sistema académico con Alumnos, Materias y Aulas.
+Este es un proyecto de consola en .NET que demuestra el uso de Entity Framework Core con el enfoque Code-First para interactuar con una base de datos MySQL. La aplicación está configurada utilizando inyección de dependencias y gestiona un modelo de datos simple orientado a un sistema académico con Alumnos, Materias y Aulas.
 
 ✨ Características
 Enfoque Code-First: Las tablas de la base de datos se generan y gestionan a partir de las clases de C# (los modelos).
